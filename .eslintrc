@@ -1,0 +1,37 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "max-len": "warn",
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "warn",
+    "class-methods-use-this": "warn",
+    "global-require": "warn",
+    "no-param-reassign": "warn",
+    "no-await-in-loop": "warn",
+    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+
+    "import/prefer-default-export": "off",
+    "import/first": "off",
+    "import/no-dynamic-require": "warn",
+    
+    "react/jsx-curly-brace-presence": "off",
+    "react/jsx-filename-extension": "off",
+    "react/forbid-prop-types": "off",
+    "react/prefer-stateless-function": "off",
+    "react/require-default-props": "warn",
+    
+    "jsx-a11y/no-static-element-interactions": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  }
+}
