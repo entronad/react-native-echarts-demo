@@ -1,27 +1,25 @@
+/* eslint-disable */
 import React from 'react';
 import {
   View,
   WebView,
   Platform,
 } from 'react-native';
-import PropTypes from 'prop-types';
 
 import html from './index.html';
 
 const os = Platform.OS;
 
+/**
+ * props:
+ * 
+ * option(Object): Param of chart.setOption(), 
+ *                 the setOption will auto execute when option is changed.
+ * exScript(String): Any JavaScript that will execute when WebView is loaded.
+ * oMessage(Function): The handler for the WebView's postMessage.
+ *                     You will have to set postMessage in the exScript first.
+ */
 export default class WebChart extends React.Component {
-  static propTypes = {
-    style: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.array,
-      PropTypes.number,
-    ]),
-
-    option: PropTypes.object.isRequired,
-    exScript: PropTypes.string,
-    onMessage: PropTypes.func,
-  }
   componentDidUpdate(prevProps, prevState) {
     const optionJson = JSON.stringify(this.props.option);
     if (optionJson !== JSON.stringify(prevProps.option)) {

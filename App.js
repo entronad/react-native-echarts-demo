@@ -139,7 +139,7 @@ export default class App extends Component {
               splitArea: {
                 show: true,
                 areaStyle: {
-                  color: ['rgba(250,250,250,0.0)', 'rgba(250,250,250,0.05)']
+                  color: ['rgba(250,250,250,0.0)', 'rgba(250,250,250,0.05)'],
                 },
               },
             },
