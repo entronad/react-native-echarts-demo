@@ -20,6 +20,11 @@ const os = Platform.OS;
  *                     You will have to set postMessage in the exScript first.
  */
 export default class WebChart extends React.Component {
+  static defaultProps = {
+    option: {},
+    exScript: '',
+    onMessage: () => {},
+  }
   componentDidUpdate(prevProps, prevState) {
     const optionJson = JSON.stringify(this.props.option);
     if (optionJson !== JSON.stringify(prevProps.option)) {
@@ -44,7 +49,7 @@ export default class WebChart extends React.Component {
             document.addEventListener('message', (e) => {
               chart.setOption(JSON.parse(e.data), true);
             });
-            ${this.props.exScript ? this.props.exScript : ''}
+            ${this.props.exScript}
           `}
           onMessage={(e) => { this.props.onMessage(JSON.parse(e.nativeEvent.data)); }}
         />
