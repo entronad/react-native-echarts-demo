@@ -26,7 +26,14 @@ export default class WebChart extends React.Component {
     onMessage: () => {},
   }
   componentDidUpdate(prevProps, prevState) {
-    const optionJson = JSON.stringify(this.props.option);
+    // 处理option中函数类型的属性
+    const callback = (key, val) => {
+      if (typeof val === 'function') {
+        return val.toString();
+      }
+      return val;
+    }
+    const optionJson = JSON.stringify(this.props.option, callback);
     if (optionJson !== JSON.stringify(prevProps.option)) {
       this.update(optionJson);
     }
@@ -47,7 +54,13 @@ export default class WebChart extends React.Component {
             const chart = echarts.init(document.getElementById('main'), null, { renderer: 'svg' });
             chart.setOption(${JSON.stringify(this.props.option)});
             document.addEventListener('message', (e) => {
-              chart.setOption(JSON.parse(e.data), true);
+              // 处理可能被字符串处理的option
+              chart.setOption(JSON.parse(e.data, function(key, val) {
+                if (val.indexOf && val.indexOf('function') > -1) {
+                  return eval('(' + val + ')')
+                }
+                return val
+              }), true);
             });
             ${this.props.exScript}
           `}
