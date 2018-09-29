@@ -4225,6 +4225,10 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+number-display@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/number-display/-/number-display-1.1.1.tgz#6acce3a961b39608670094be20f60d8947f577ae"
+
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"

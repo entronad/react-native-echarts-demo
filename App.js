@@ -5,6 +5,7 @@ import {
   Text,
   Alert,
 } from 'react-native';
+import display from 'number-display';
 
 import WebChart from './WebChart';
 
@@ -46,38 +47,42 @@ export default class App extends Component {
   getData = () => setTimeout(() => this.setState({
     data: [{
       name: '一月',
-      value: 80,
+      value: 8726.2453,
     }, {
       name: '二月',
-      value: 87.8,
+      value: 2445.2453,
     }, {
       name: '三月',
-      value: 71,
+      value: 6636.2400,
     }, {
       name: '四月',
-      value: 80,
+      value: 4774.2453,
     }, {
       name: '五月',
-      value: 66,
+      value: 1066.2453,
     }, {
       name: '六月',
-      value: 80,
+      value: 4576.9932,
     }, {
       name: '七月',
-      value: 80,
+      value: 8926.9823,
     }],
   }), 1000)
   alertMessage = (message) => {
-    Alert.alert(
-      '传入onMessage()参数的：',
-      JSON.stringify(message),
-    );
+    console.log(message);
+    if (message.type === 'select') {
+      const item = this.state.data[message.payload.index];
+      Alert.alert(
+        item.name,
+        display(item.value),  // 转换数值为字符串并格式化
+      );
+    }
   }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>使用示例</Text>
-        <Text style={styles.tip}>- 数秒后加载数据</Text>
+        <Text style={styles.tip}>- 1秒后加载数据</Text>
         <Text style={styles.tip}>- 点击柱形执行onMessage()</Text>
         <WebChart
           style={styles.chart}
@@ -125,7 +130,6 @@ export default class App extends Component {
               axisTick: {
                   show: false,
               },
-              max: 100,
               axisLine: {
                 lineStyle: {
                   color: '#0c3b71',
@@ -133,7 +137,7 @@ export default class App extends Component {
               },
               axisLabel: {
                 color: 'rgb(170,170,170)',
-                formatter: '{value} %',
+                formatter: '{value}',
               },
               splitNumber: 12,
               splitArea: {
