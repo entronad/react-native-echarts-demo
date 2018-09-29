@@ -54,7 +54,6 @@ export default class WebChart extends React.Component {
             const chart = echarts.init(document.getElementById('main'), null, { renderer: 'svg' });
             chart.setOption(${JSON.stringify(this.props.option)});
             document.addEventListener('message', (e) => {
-              // 处理可能被字符串处理的option
               chart.setOption(JSON.parse(e.data, function(key, val) {
                 if (val.indexOf && val.indexOf('function') > -1) {
                   return eval('(' + val + ')')
