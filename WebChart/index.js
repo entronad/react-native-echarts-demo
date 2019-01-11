@@ -50,6 +50,7 @@ export default class WebChart extends React.Component {
           scrollEnabled={false}
           scalesPageToFit={os !== 'ios'}
           source={os === 'ios' ? html : { uri: 'file:///android_asset/web/WebChart/index.html' }}
+          originWhitelist={['*']}
           injectedJavaScript={`
             const chart = echarts.init(document.getElementById('main'), null, { renderer: 'svg' });
             chart.setOption(${JSON.stringify(this.props.option)});
