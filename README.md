@@ -1,6 +1,12 @@
-# react-native-echarts-demo
+# 更新
+
+**2019-11-05**
+
+- 优化函数序列化与反序列化的代码，将首次加载 option 移出 script ，也通过 webView.postMessage 的方式加载，以避免处理函数序列化中出现的转义字符。
 
 
+
+# 介绍
 
 > 一种在 React Native 中封装的响应式 Echarts 组件，使用与示例请参见：[react-native-echarts-demo](https://github.com/entronad/react-native-echarts-demo)
 

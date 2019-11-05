@@ -119,6 +119,12 @@ export default class App extends Component {
               axisLabel: {
                 show: true,
                 color: 'rgb(170,170,170)',
+                formatter: function xFormatter(value, index) {
+                  if (index === 0) {
+                    return `#${value}\n#`;
+                  }
+                  return value;
+                },
               },
             }],
             yAxis: {
@@ -137,7 +143,9 @@ export default class App extends Component {
               },
               axisLabel: {
                 color: 'rgb(170,170,170)',
-                formatter: '{value}',
+                formatter: (value, index) => (index === 0
+                  ? `*${value}\n*`
+                  : value),
               },
               splitNumber: 12,
               splitArea: {
