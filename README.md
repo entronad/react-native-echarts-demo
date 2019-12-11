@@ -1,5 +1,12 @@
 # 更新
 
+**2019-12-11**
+
+- 采用canvas渲染器。对于目前的移动设备，canvas效果好于svg。
+- 目前在加载本地html方面，react-native-webview比原本的WebView组件问题还多：
+  [react-native-community/react-native-webview#746](https://github.com/react-native-community/react-native-webview/issues/746)
+  建议不要升到那么高，还用原本的WebView
+
 **2019-11-05**
 
 - 优化函数序列化与反序列化的代码，将首次加载 option 移出 script ，也通过 webView.postMessage 的方式加载，以避免处理函数序列化中出现的转义字符。

@@ -60,7 +60,7 @@ export default class WebChart extends React.Component {
               }
               return val
             });
-            const chart = echarts.init(document.getElementById('main'), null, { renderer: 'svg' });
+            const chart = echarts.init(document.getElementById('main'), null);
             document.addEventListener('message', (e) => {
               chart.setOption(parse(e.data), true);
             });
