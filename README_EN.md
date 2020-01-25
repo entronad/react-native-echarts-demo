@@ -1,3 +1,7 @@
+# Note
+
+For now, when developing cross-platform mobile apps, we think Flutter is better than React Native. To use Echarts widgets in Flutter, please see: https://github.com/entronad/flutter_echarts 
+
 # Update
 
 **2019-12-11**

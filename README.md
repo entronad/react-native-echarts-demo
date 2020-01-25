@@ -1,4 +1,8 @@
-**Are you want to read this in English? [switch to English version](README(English).md)**
+*[Read in English](README_EN.md)*
+
+# 注意
+
+目前，我们认为对于移动端跨平台开发，Flutter 是优于 React Native 的方案，在 Flutter 中使用 Echarts 组件请见：[flutter_echarts](https://github.com/entronad/flutter_echarts) 
 
 # 更新
 
